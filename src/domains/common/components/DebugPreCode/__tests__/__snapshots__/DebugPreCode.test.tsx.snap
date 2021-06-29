@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+Array [
+  <div
+    data-testid="title"
+  >
+    header
+    : 
+  </div>,
+  <pre
+    style={
+      Object {
+        "whiteSpace": "pre-wrap",
+      }
+    }
+  >
+    <code
+      data-testid="content"
+    >
+      {
+  "content": "string"
+}
+    </code>
+  </pre>,
+]
+`;

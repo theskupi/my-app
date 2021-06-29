@@ -5,7 +5,7 @@ import { UserInterface } from "../models/User";
 const getUsersQueryKey = () => ["users"];
 
 export const useUsersQuery = () =>
-  useQuery<UserInterface[]>(getUsersQueryKey(), () =>
+  useQuery<UserInterface[], Error>(getUsersQueryKey(), () =>
     axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.data)

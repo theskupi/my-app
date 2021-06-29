@@ -1,11 +1,12 @@
 import * as React from "react";
 import { FunctionComponent } from "react";
 import { CircularProgress, Container, Grid } from "@material-ui/core";
-import { useUsersQuery } from "../hooks/useUsersQuery";
-import { Redirect } from "react-router-dom";
-import UserCard from "../components/UserCard";
+import { useUsersQuery } from "../../hooks/useUsersQuery";
+import { Redirect, useHistory } from "react-router-dom";
+import UserCard from "../../components/UserCard/UserCard";
 
 const UsersContainer: FunctionComponent = () => {
+  const { push } = useHistory();
   const { data, isError, isLoading } = useUsersQuery();
 
   if (isLoading) return <CircularProgress />;
@@ -16,7 +17,10 @@ const UsersContainer: FunctionComponent = () => {
       <Grid container spacing={2}>
         {data.map((user) => (
           <Grid item xs={12} md={4}>
-            <UserCard user={user} />
+            <UserCard
+              user={user}
+              onDetailClick={(id) => push("/users/" + id)}
+            />
           </Grid>
         ))}
       </Grid>
